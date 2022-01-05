@@ -9,10 +9,9 @@
 #include <GL/glew.h>
 #include <GL/glx.h>
 
-#define DEBUG 0
+#define DEBUG 1
 #define MAX_N_TOKENS 65536
 #define DELIMITERS " \t\r\n\a"
-
 
 
 
@@ -512,11 +511,16 @@ animate(Display* xdisplay, Window win, Bool* condition, long* attempts, struct s
   while (1)
   {
     time_s=elapsed_time_s(start_time);
-    glUniform1f(data->timeID, time_s);
-    glXSwapBuffers(xdisplay, win);
-    glEnableVertexAttribArray(0);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    glDisableVertexAttribArray(0);
+    if((time_s < 1.0/data->rate) || ((end_s>0) && ((time_s-end_s)*data->rate>=0.0))){
+    #if DEBUG
+        printf("time_s : %f\n", time_s);
+    #endif    
+        glUniform1f(data->timeID, time_s);
+        glXSwapBuffers(xdisplay, win);
+        glEnableVertexAttribArray(0);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glDisableVertexAttribArray(0);
+    }
     if ( (end_s>0) && ((time_s-end_s)*data->rate>=1.0) ) { // unlock fade out
       break;
     }
@@ -530,7 +534,7 @@ animate(Display* xdisplay, Window win, Bool* condition, long* attempts, struct s
       continue;
     }
 #if DEBUG
-    printf("time_s : %f\n", time_s);
+    //printf("time_s : %f\n", time_s);
 #endif
   }
 
