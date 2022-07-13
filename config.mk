@@ -4,7 +4,7 @@ VERSION = 0.1-alpha
 # Customize below to fit your system
 
 # paths
-SHADER_LOCATION = /home/louis/.gllock/shaders
+SHADER_LOCATION = ~/.gllock/shaders
 
 # shader
 # FRGMNT_SHADER = ascii.fragment.glsl
