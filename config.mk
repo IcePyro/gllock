@@ -10,14 +10,14 @@ SHADER_LOCATION = /home/louis/.gllock/shaders
 # FRGMNT_SHADER = ascii.fragment.glsl
 # FRGMNT_SHADER = blur.fragment.glsl
 # FRGMNT_SHADER = bokeh.fragment.glsl
-#FRGMNT_SHADER = circle.fragment.glsl
+FRGMNT_SHADER = circle.fragment.glsl
 # FRGMNT_SHADER = crt.fragment.glsl
 # FRGMNT_SHADER = glitch.fragment.glsl
 # FRGMNT_SHADER = radialbokeh.fragment.glsl
 # FRGMNT_SHADER = rain.fragment.glsl
 # FRGMNT_SHADER = square.fragment.glsl
 # FRGMNT_SHADER = voronoi.fragment.glsl
-FRGMNT_SHADER = vor.fragment.glsl
+# FRGMNT_SHADER = vor.fragment.glsl
 
 PREFIX = /usr/local
 

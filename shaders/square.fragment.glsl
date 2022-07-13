@@ -37,7 +37,7 @@ void main(void) {
       textureCoordinates.y = 1.0 - textureCoordinates.y;
       textureCoordinates = clamp(textureCoordinates, 0.0 + textureEdgeOffset, 1.0 - textureEdgeOffset);
       accumulator += texture(imageData, textureCoordinates);
-     }
+    }
   }
   
   gl_FragColor = accumulator / vec4(textureSamplesCount * textureSamplesCount);
